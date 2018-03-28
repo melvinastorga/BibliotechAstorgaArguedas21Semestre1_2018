@@ -1,71 +1,62 @@
-
 package domain;
 
+import java.io.Serializable;
 
-public class Material {
+
+public class Material implements Serializable{
     
     private String name;
     private String code;
-    private int quantity;
+    private int year;
 
     public Material() {
         this.name = "";
         this.code = "";
-        this.quantity = 0;
+        this.year = 0;
     }
 
-    public Material(String name, String code, int quantity) {
+    public Material(String name, String code, int year) {
         this.name = name;
         this.code = code;
-        this.quantity = quantity;
+        this.year = year;
     }
 
-    /**
-     * @return the name
-     */
+   
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the code
-     */
     public String getCode() {
         return code;
     }
 
-    /**
-     * @param code the code to set
-     */
+
     public void setCode(String code) {
         this.code = code;
     }
 
-    /**
-     * @return the quantity
-     */
-    public int getQuantity() {
-        return quantity;
+    public int getYear() {
+        return year;
     }
 
-    /**
-     * @param quantity the quantity to set
-     */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setYear(int year) {
+        this.year = year;
     }
+
 
     @Override
     public String toString() {
-        return "Material{" + "name=" + name + ", code=" + code + ", quantity=" + quantity + '}';
+        return "Material{" + "name=" + name + ", code=" + code + ", quantity=" + year + '}';
     }
 
-    
+    public int sizeInBytes(){
+        return this.code.length() * 2 +
+               this.name.length() * 2 +
+               4;
+    }
 }
